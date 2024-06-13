@@ -71,8 +71,14 @@ To use `ts:generate-types`run the following code in a terminal at the project ro
 <TabItem value="npm">
 
 ```sh
-npm run strapi ts:generate-types --debug #optional flag to display additional logging
+npx strapi ts:generate-types --debug #optional flag to display additional logging
 ```
+  Depending on your prettier setup you may encounter the following error:
+  ***Failed to generate types for contentTypes: require() of ES Module \node_modules\prettier-plugin-tailwindcss\dist\index.mjs not supported.***
+  If this happens you may need to go into your prettier.config.js file and temporarily remove the following from the file: plugins: ['prettier-plugin-tailwindcss']
+  and run the npx command again.*
+
+
 
 </TabItem>
 
@@ -83,6 +89,9 @@ yarn strapi ts:generate-types --debug #optional flag to display additional loggi
 ```
 
 </TabItem>
+
+###### *If you are unable to run the npm command or you're having issues creating new content types try the following*[^1]
+
 </Tabs>
 
 :::tip Tip: Types generation for JavaScript projects
@@ -242,3 +251,5 @@ yarn develop
 </Tabs>
 
 After completing the preceding procedure a `dist` directory will be added at the project root and the project has access to the same TypeScript features as a new TypeScript-supported Strapi project.
+
+
